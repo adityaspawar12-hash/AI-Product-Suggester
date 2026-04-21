@@ -7,7 +7,7 @@ BASE_URL = "https://dummyjson.com/products/category"
 USD_TO_INR = 83
 
 
-# ================= INTENT MAP =================
+#INTENT MAP
 def get_category(user_input):
     user_input = user_input.lower()
 
@@ -35,7 +35,7 @@ def get_category(user_input):
     return None
 
 
-# ================= FETCH PRODUCTS =================
+# FETCH PRODUCTS 
 def get_products(category, budget=None):
     try:
         url = f"{BASE_URL}/{category}"
@@ -51,14 +51,14 @@ def get_products(category, budget=None):
 
         for p in products:
 
-            # 🔥 PRICE CONVERT
+            # PRICE CONVERT
             price_inr = int(p.get("price", 0) * USD_TO_INR)
 
-            # 🔥 BUDGET FILTER (MAIN FIX)
+            # BUDGET FILTER (MAIN FIX)
             if budget is not None and price_inr > budget:
                 continue
 
-            # 🔥 SAFE IMAGE HANDLING
+            # SAFE IMAGE HANDLING
             image = (
                 p.get("thumbnail")
                 or (p.get("images")[0] if p.get("images") else None)
@@ -73,7 +73,7 @@ def get_products(category, budget=None):
                 "description": p.get("description", "No description")
             })
 
-        # 🔥 SORT BY RATING (BEST FIRST)
+        # SORT BY RATING (BEST FIRST)
         results = sorted(results, key=lambda x: x["rating"], reverse=True)
 
         return results
@@ -99,7 +99,7 @@ def index():
         category = get_category(user_input)
 
         if category:
-            results = get_products(category, budget)  # 🔥 IMPORTANT FIX
+            results = get_products(category, budget)  # IMPORTANT FIX
         else:
             results = []
 
