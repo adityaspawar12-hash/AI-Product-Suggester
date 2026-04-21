@@ -7,7 +7,7 @@ BASE_URL = "https://dummyjson.com/products/category"
 USD_TO_INR = 83
 
 
-#INTENT MAP
+# INTENT MAP
 def get_category(user_input):
     user_input = user_input.lower()
 
@@ -83,7 +83,7 @@ def get_products(category, budget=None):
         return []
 
 
-# ================= ROUTE =================
+# ROUTE
 @app.route("/", methods=["GET", "POST"])
 def index():
     results = []
