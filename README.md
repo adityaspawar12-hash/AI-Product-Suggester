@@ -3,6 +3,7 @@ AI Product Recommendation System (Flask Web App)  An intelligent AI-powered prod
 
 
 ##Tech Stack
+
 Python (Flask)
 HTML, CSS, JavaScript
 DummyJSON API (for product data)
@@ -10,6 +11,7 @@ Jinja2 templating
 
 
 ##How It Works
+
 1.User enters a product query (e.g., “phone”, “laptop”)
 2.System detects intent and maps it to correct category
 3.API fetches relevant products
